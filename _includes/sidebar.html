@@ -86,10 +86,10 @@
 
       {% assign sub_categories = sub_categories | sort %}
       {% assign sub_categories_size = sub_categories | size %}
-      <li style="list-style: none;">
+      <li style="list-style: none;" class="nav-item">
         <!-- 대분류카테고리명 & 링크 -->
         {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
-          <a href="{{ _category_url | relative_url }}" class="nav-link px-5 mx-3">
+          <a href="{{ _category_url | relative_url }}" class="nav-link">
             {{ category_name }}
             
             <!-- 대분류카테고리 포스트 개수 -->
@@ -98,15 +98,16 @@
              ({{ top_posts_size }})
             </span>
           </a>
+      </li>
         
         <!-- 중분류카테고리존재시 -->
         {% if sub_categories_size > 0 %}
-        <ul style="height : auto" class="ml-2">
+        <!-- <ul style="height : auto" class="ml-2"> -->
           <!-- 중분류 카테고리명 & 링크 -->
           {% for sub_category in sub_categories %}
-          <li style="list-style: none;">
+          <li style="list-style: none;" class="nav-item ml-2">
             {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
-            <a href="{{ _sub_ctg_url | relative_url }}" class="nav-link px-5 mx-3">
+            <a href="{{ _sub_ctg_url | relative_url }}" class="nav-link">
               {{ sub_category }}
               <!-- 중분류 포스트 개수 -->
               {% assign posts_size = site.categories[sub_category] | size %}
@@ -114,10 +115,11 @@
                 ({{ posts_size }})
               </span>
             </a>
+          </li>
           {% endfor %}
-        </ul>
+        <!-- </ul> -->
         {% endif %}
-      </li>
+      
 
     {% endif %}
   {% endfor %}
