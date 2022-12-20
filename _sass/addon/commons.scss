@@ -742,7 +742,9 @@ $sidebar-display: "sidebar-display";
   }
 
   ul {
-    height: $tab-height * $tab-count;
+    // 기존 height는 tab-height = 3rem, tab-count=5 로 variables.scss에 설정되어 있음
+    // height: $tab-height * $tab-count;
+    height: 50rem;
     margin-bottom: 2rem;
     padding-left: 0;
 
