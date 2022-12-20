@@ -42,7 +42,8 @@
     <!-- home -->
     <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
       <a href="{{ '/' | relative_url }}" class="nav-link">
-        <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i>
+        <!-- <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> -->
+        <i class="fa-fw fas fa-home  mr-xl-1 unloaded"></i>
         <span>{{ site.data.locales[site.lang].tabs.home | upcase }}</span>
       </a>
     </li>
@@ -50,7 +51,8 @@
     {% for tab in site.tabs %}
     <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
       <a href="{{ tab.url | relative_url }}" class="nav-link">
-        <i class="fa-fw {{ tab.icon }} ml-xl-3 mr-xl-3 unloaded"></i>
+        <!-- <i class="fa-fw {{ tab.icon }} ml-xl-3 mr-xl-3 unloaded"></i> -->
+        <i class="fa-fw {{ tab.icon }} mr-xl-1 unloaded"></i>
         {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
 
         <span>{{ site.data.locales[site.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
@@ -92,7 +94,7 @@
         {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
           <a href="{{ _category_url | relative_url }}" class="nav-link">
             <!-- 폴더아이콘 -->
-            <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw"></i>
+            <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw mr-xl-1"></i>
             <!-- 카테고리명 -->
             {{ category_name }}
             <!-- 대분류카테고리 포스트 개수 -->
@@ -112,7 +114,7 @@
             {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
             <a href="{{ _sub_ctg_url | relative_url }}" class="nav-link">
               <!-- 폴더아이콘 -->
-              <i class="far fa-folder fa-fw"></i>
+              <i class="far fa-folder fa-fw mr-xl-1"></i>
               <!-- 카테고리명 -->
               {{ sub_category }}
               <!-- 중분류 포스트 개수 -->
