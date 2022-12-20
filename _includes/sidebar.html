@@ -42,8 +42,11 @@
     <!-- home -->
     <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
       <a href="{{ '/' | relative_url }}" class="nav-link">
+
+        <!-- icon의 maring을 조절 -->
         <!-- <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> -->
         <i class="fa-fw fas fa-home  mr-xl-1 unloaded"></i>
+
         <span>{{ site.data.locales[site.lang].tabs.home | upcase }}</span>
       </a>
     </li>
@@ -51,8 +54,11 @@
     {% for tab in site.tabs %}
     <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
       <a href="{{ tab.url | relative_url }}" class="nav-link">
+        
+        <!-- icon의 maring을 조절 -->
         <!-- <i class="fa-fw {{ tab.icon }} ml-xl-3 mr-xl-3 unloaded"></i> -->
         <i class="fa-fw {{ tab.icon }} mr-xl-1 unloaded"></i>
+
         {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
 
         <span>{{ site.data.locales[site.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
